@@ -1,0 +1,10 @@
+{{define "pagename"}}this is home page{{end}}
+{{define "content"}}
+<i>"msg":{{.msg}}</i>
+<p>wwwroot: {{.wwwroot}}</p>
+<form method="post">
+    <input type="text" name="msg" value="{{.msg}}"/>
+    <button type="submit">Use Post Method</button>
+</form>
+{{end}}
+{{template "shared/_layout.html" .}}
