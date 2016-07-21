@@ -1,22 +1,22 @@
 package controllers
 
-import "github.com/Simbory/wemvc"
+import ."github.com/Simbory/wemvc"
 
 type Home struct {
-	wemvc.Controller
+	Controller
 }
 
-func (this Home) GetIndex() wemvc.ActionResult {
-	this.ViewData["msg"] = this.Session().Get("msg")
-	this.ViewData["wwwroot"] = wemvc.App.GetWebRoot()
-	return this.View()
+func (ctl Home) GetIndex() ActionResult {
+	ctl.ViewData["msg"] = ctl.Session().Get("msg")
+	ctl.ViewData["wwwroot"] = AppServer.GetRootPath()
+	return ctl.View()
 }
 
-func (this Home) PostIndex() wemvc.ActionResult {
-	msg := this.Request.Form.Get("msg")
-	this.Session().Set("msg", msg)
-	this.ViewData["msg"] = this.Session().Get("msg")
-	this.ViewData["wwwroot"] = wemvc.App.GetWebRoot()
-	this.ViewData["s"] = this.Session().Get("s")
-	return this.View()
+func (ctl Home) PostIndex() ActionResult {
+	msg := ctl.Request.Form.Get("msg")
+	ctl.Session().Set("msg", msg)
+	ctl.ViewData["msg"] = ctl.Session().Get("msg")
+	ctl.ViewData["wwwroot"] = AppServer.GetRootPath()
+	ctl.ViewData["s"] = ctl.Session().Get("s")
+	return ctl.View()
 }

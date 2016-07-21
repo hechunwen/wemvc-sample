@@ -3,11 +3,11 @@ package controllers
 import "github.com/Simbory/wemvc"
 
 func init() {
-	wemvc.App.Route("/", Home{})
-	wemvc.App.Route("/download", Download{})
-	wemvc.App.Route("/test", TestController{})
+	wemvc.AppServer.Route("/", Home{})
+	wemvc.AppServer.Route("/download", Download{})
+	wemvc.AppServer.Route("/test", TestController{})
 
-	wemvc.App.SetFilter("/", func(ctx wemvc.Context) {
+	wemvc.AppServer.SetFilter("/", func(ctx wemvc.Context) {
 		ctx.SetItem("name", "Simbory")
 	})
 }
