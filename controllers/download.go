@@ -14,7 +14,7 @@ func (t Download)Get() ActionResult {
 	if len(file) < 1 {
 		return t.NotFound()
 	}
-	file = AppServer.MapPath(file)
+	file = MapPath(file)
 	if  !utils.IsFile(file) {
 		return t.NotFound()
 	}

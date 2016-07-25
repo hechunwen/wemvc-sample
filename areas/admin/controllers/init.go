@@ -6,9 +6,9 @@ import (
 )
 
 func init() {
-	wemvc.AppServer.Route("/admin", Admin{})
-	wemvc.AppServer.Route("/admin/account/:action", Account{})
-	wemvc.AppServer.SetFilter("/admin", func(ctx wemvc.Context) {
+	wemvc.Route("/admin", Admin{})
+	wemvc.Route("/admin/account/:action", Account{})
+	wemvc.SetFilter("/admin", func(ctx wemvc.Context) {
 		if (ctx.Request().URL.Path == "/admin/account/login") {
 			return
 		}

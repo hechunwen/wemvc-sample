@@ -6,6 +6,6 @@ type Admin struct {
 	wemvc.Controller
 }
 
-func (this Admin) Get() wemvc.ActionResult {
-	return this.Content("Hello," + this.Items["name"].(string))
+func (this Admin) GetIndex() wemvc.ActionResult {
+	return this.PlainText("Hello," + this.Items["name"].(string))
 }
