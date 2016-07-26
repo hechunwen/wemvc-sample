@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-	wemvc.Route("/admin", Admin{})
 	wemvc.Route("/admin/account/:action", Account{})
+	wemvc.Route("/admin/shell/*path", Admin{})
 	wemvc.SetFilter("/admin", func(ctx wemvc.Context) {
 		if (ctx.Request().URL.Path == "/admin/account/login") {
 			return
