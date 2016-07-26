@@ -19,7 +19,7 @@ func (this Account) PostLogin() wemvc.ActionResult {
 	if email == "simbory@sina.cn" && pwd == "123456" {
 		var returnUrl = this.Request.URL.Query().Get("returnUrl")
 		if len(returnUrl) < 1 {
-			returnUrl = "/admin"
+			returnUrl = "/admin/shell/index"
 		}
 		var cookie = &http.Cookie{
 			Name:     "ADMIN_AUTH",

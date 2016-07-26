@@ -6,6 +6,6 @@ type Admin struct {
 	wemvc.Controller
 }
 
-func (this Admin) GetIndex() wemvc.ActionResult {
-	return this.PlainText("Hello," + this.Items["name"].(string))
+func (this Admin) Index() wemvc.ActionResult {
+	return this.PlainText("Hello," + this.Items["name"].(string) + " " + this.RouteData.ByName("pathInfo"))
 }
