@@ -30,7 +30,7 @@ func (this Account) PostLogin() wemvc.ActionResult {
 			Domain:   this.Request.URL.Host,
 		}
 		http.SetCookie(this.Response, cookie)
-		return this.Redirect(returnUrl, 302)
+		return this.Redirect(returnUrl)
 	}
 	this.ViewData["email"] = email
 	this.ViewData["error"] = "invalid email or password"
