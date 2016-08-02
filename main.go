@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	wemvc.SetLogFile("log.log")
 	wemvc.AddStatic("/css/")
 	wemvc.AddStatic("/js/")
 	wemvc.AddStatic("/favicon.ico")
