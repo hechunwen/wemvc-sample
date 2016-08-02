@@ -9,15 +9,15 @@ type Account struct {
 	wemvc.Controller
 }
 
-func (this Account) GetLogin() wemvc.ActionResult {
-	return this.ViewFile("admin/login/index")
+func (acc Account) GetLogin() wemvc.ActionResult {
+	return acc.View()
 }
 
-func (this Account) PostLogin() wemvc.ActionResult {
-	var email = this.Request.Form.Get("email")
-	var pwd = this.Request.Form.Get("password")
+func (acc Account) PostLogin() wemvc.ActionResult {
+	var email = acc.Request.Form.Get("email")
+	var pwd = acc.Request.Form.Get("password")
 	if email == "simbory@sina.cn" && pwd == "123456" {
-		var returnUrl = this.Request.URL.Query().Get("returnUrl")
+		var returnUrl = acc.Request.URL.Query().Get("returnUrl")
 		if len(returnUrl) < 1 {
 			returnUrl = "/admin/shell/index"
 		}
@@ -27,12 +27,12 @@ func (this Account) PostLogin() wemvc.ActionResult {
 			Path:     "/",
 			HttpOnly: false,
 			Secure:   false,
-			Domain:   this.Request.URL.Host,
+			Domain:   acc.Request.URL.Host,
 		}
-		http.SetCookie(this.Response, cookie)
-		return this.Redirect(returnUrl)
+		http.SetCookie(acc.Response, cookie)
+		return acc.Redirect(returnUrl)
 	}
-	this.ViewData["email"] = email
-	this.ViewData["error"] = "invalid email or password"
-	return this.ViewFile("admin/login/index")
+	acc.ViewData["email"] = email
+	acc.ViewData["error"] = "invalid email or password"
+	return acc.View()
 }
