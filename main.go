@@ -1,7 +1,6 @@
 package main
 
 import (
-	_"github.com/Simbory/wemvc"
 	_"github.com/Simbory/wemvc-sample/controllers"
 	_ "github.com/Simbory/wemvc-sample/areas/admin/controllers"
 	"github.com/Simbory/wemvc"
