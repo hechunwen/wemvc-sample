@@ -7,8 +7,9 @@ import (
 )
 
 func main() {
-	wemvc.AddStatic("/css/")
-	wemvc.AddStatic("/js/")
-	wemvc.AddStatic("/favicon.ico")
-	wemvc.Run(8080)
+	wemvc.
+		AddStatic("/css/").
+		AddStatic("/js/").
+		AddStatic("/favicon.ico").
+		Run(8080)
 }

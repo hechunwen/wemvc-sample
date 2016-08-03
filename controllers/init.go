@@ -2,12 +2,14 @@ package controllers
 
 import "github.com/Simbory/wemvc"
 
-func init() {
-	wemvc.Route("/", Home{})
-	wemvc.Route("/download", Download{})
-	wemvc.Route("/test", TestController{})
+func filterFunc(ctx wemvc.Context) {
+	ctx.SetItem("name", "Simbory")
+}
 
-	wemvc.SetFilter("/", func(ctx wemvc.Context) {
-		ctx.SetItem("name", "Simbory")
-	})
+func init() {
+	wemvc.
+		Route("/", Home{}).
+		Route("/download", Download{}).
+		Route("/test", TestController{}).
+		SetFilter("/", filterFunc)
 }

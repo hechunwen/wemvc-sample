@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-	<defaultUrl>index.html;index.htm</defaultUrl>
+	<defaultUrl>index.html;index.htm;default.html</defaultUrl>
 	<!-- Connection string setting -->
-	<connStrings configSource="config/conn.xml" />
+	<connStrings>
+		<add name="default" type="mysql" connString="connString1"/>
+		<add name="optional" type="mysql" connString="optional1"/>
+		<add name="required" type="mysql" connString="required1"/>
+	</connStrings>
 	<!-- Application setting -->
-	<settings configSource="config/setting.xml" />
-	<!-- MIME type setting -->
-	<mime configSource="config/mime.xml" />
+	<settings>
+		<add key="CookieNameForSession" value="SessionID"/>
+		<add key="default" 				value="connString1" />
+		<add key="optional" 			value="optional1" />
+		<add key="required" 			value="required1" />
+		<add key="debug" 				value="true" />
+		<add key="isDebug" 				value="true" />
+	</settings>
 	<session manager="memory" cookieName="Session_ID" enableSetCookie="true" sessionIDLength="32" />
 </configuration>
