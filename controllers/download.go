@@ -9,7 +9,7 @@ type Download struct {
 	Controller
 }
 
-func (t Download)Get() ActionResult {
+func (t Download)GetIndex() ActionResult {
 	var file = t.Request.URL.Query().Get("file")
 	if len(file) < 1 {
 		return t.NotFound()
