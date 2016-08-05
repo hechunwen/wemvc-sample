@@ -25,5 +25,5 @@ func init(){
 	wemvc.Namespace("admin").
 		Route("/shell/*pathInfo", adminCtrl.Admin{}).
 		Route("/account/:action", adminCtrl.Account{}).
-		SetFilter("/shell/", adminLoginFilter)
+		Filter("/shell/", adminLoginFilter)
 }

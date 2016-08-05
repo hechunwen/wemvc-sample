@@ -8,8 +8,8 @@ import (
 
 func main() {
 	wemvc.
-		ServeStaticDir("/css/").
-		ServeStaticDir("/js/").
-		ServeStaticFile("/favicon.ico").
+	StaticDir("/css/").
+		StaticDir("/js/").
+		StaticFile("/favicon.ico").
 		Run(8080)
 }
