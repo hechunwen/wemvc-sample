@@ -3,6 +3,9 @@
 <i>"msg":{{.msg}}</i>
 <p>wwwroot: {{.wwwroot}}</p>
 <form method="post">
+    <p>
+        {{sayHello .msg}}
+    </p>
     <input type="text" name="msg" value="{{.msg}}" />
     <button type="submit">Submit Form</button>
 </form>

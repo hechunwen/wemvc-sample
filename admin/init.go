@@ -21,8 +21,13 @@ func adminLoginFilter(ctx wemvc.Context) {
 	ctx.SetItem("name", "Admin")
 }
 
+func test() string {
+	return "test"
+}
+
 func init(){
 	wemvc.Namespace("admin").
+		AddViewFunc("test", test).
 		Route("/shell/*pathInfo", adminCtrl.Admin{}).
 		Route("/account/:action", adminCtrl.Account{}).
 		Filter("/shell/", adminLoginFilter)
